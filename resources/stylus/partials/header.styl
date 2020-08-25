@@ -1,0 +1,63 @@
+.header
+	background-color #fff !important
+	box-shadow 0 2px 4px rgba(0,0,0,0.1)
+	.navbar
+		padding 27px 15px
+		background-color #fff !important
+		.navbar-brand
+			margin-right 40px
+		.navbar-nav
+			.nav-item
+				display inline-block
+				padding 0 15px
+				position relative
+				.nav-link
+					font-weight bold
+					padding 0
+					&.nav-link_red:after
+						background-color #E51B4F
+					&.nav-link_blue:after
+						background-color #1B2BE5
+					&.nav-link_cart
+						position relative
+						font-size 24px
+						color #292929
+						line-height 1
+						span
+							padding 3px 5px
+							position absolute
+							top -10px
+							right -10px
+							background-color #E51B4F
+							font-size 10px
+							color #ffffff
+							border-radius 5px
+				&:not(.dropdown) .nav-link
+					&:after
+						position absolute
+						content ''
+						display block
+						width 23px
+						height 5px
+						border-radius 3px
+						left 15px
+						bottom -8px
+	.form-inline
+		position relative
+		display block
+		.form-control
+			border none
+			width 300px
+			background-color #F8F8F8
+			border-radius 23px
+			line-height 46px
+			color #C3C3C3
+			box-shadow none
+		.btn-search
+			position absolute
+			top 19px
+			margin-top -12px
+			right 14px
+			padding 0
+			border none
+			background-color transparent

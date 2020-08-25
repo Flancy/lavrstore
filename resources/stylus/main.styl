@@ -1,0 +1,32 @@
+@import '~/public/fonts/fonts.css'
+
+@import 'partials/header.styl'
+@import 'partials/btns.styl'
+@import 'partials/breadcrumb.styl'
+@import 'partials/navbars.styl'
+
+@import 'general/slider.styl'
+@import 'general/categories.styl'
+@import 'general/banner.styl'
+@import 'general/news.styl'
+@import 'general/products.styl'
+
+@import 'product/product.styl'
+
+body
+	font-family 'Mont'
+
+.owl-theme .owl-dots .owl-dot
+	outline none !important
+.owl-theme .owl-dots .owl-dot span
+	border 1px solid #E51B4F !important
+	background transparent !important
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span
+	background #E51B4F !important
+	
+@media (min-width: 1200px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+	    max-width: 1400px;
+	}
+}

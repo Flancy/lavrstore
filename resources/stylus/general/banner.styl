@@ -1,0 +1,57 @@
+.banner
+	padding 50px 0
+	.col-sm-6
+		position relative
+	.banner__img
+		position absolute
+		top 40px
+		right 0
+	.banner__wrap
+		background-color #E51B4F
+		border-radius 20px
+		margin-left 0
+		margin-right 0
+		padding 40px 30px 50px 50px
+	.h2
+		font-size 77px
+		color #ffffff
+		text-transform uppercase
+		line-height 89px
+		font-weight 900
+	.h3
+		margin-top 20px
+		margin-bottom 20px
+		font-size 55px
+		color #ffffff
+		line-height 64px
+		font-weight bold
+	.banner__promo
+		display block
+		margin-bottom 30px
+		font-size 24px
+		color #ffffff
+		line-height 30px
+		font-weight 400
+		span
+			width 100%
+		b
+			font-weight bold
+		a
+			@extend .banner__promo
+			display inline-block
+			position relative
+			&:before
+				content ''
+				left 0
+				width 100%
+				display block
+				position absolute
+				bottom 1px
+				height 1px
+				background-color rgba(#ffffff, 0.7)
+			&:hover, &:active
+				text-decoration none
+				&:before
+					display none
+	.btn-wrap
+		text-align right
