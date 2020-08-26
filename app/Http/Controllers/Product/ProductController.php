@@ -59,8 +59,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $products_hot = Product::where('hot', 1)
+            ->take(4)
+            ->get();
+            
         return view('product.show')->with([
-            'product' => Product::where('id', $id)->firstOrFail()
+            'product' => Product::where('id', $id)->firstOrFail(),
+            'product_hot' => $products_hot,
         ]);
     }
 

@@ -1,6 +1,7 @@
 .product
 	.flex-row
 		display flex
+		justify-content space-between
 	.product-slider_left
 		flex 0 0 190px
 		max-width 190px
@@ -28,3 +29,76 @@
 		display flex
 		align-items center
 		justify-content center
+	.product__category
+		font-size 15px
+		color #E51B4F
+		font-weight bold
+		margin-bottom 20px
+	.h1
+		color #292929
+		font-size 36px
+		line-height 1.3
+		font-weight bold
+		margin-bottom 20px
+	.product__articul
+		color #7C7C7C
+		font-size 15px
+		line-height 1
+		margin-bottom 30px
+	.product__content
+		color #292929
+		font-size 15px
+		line-height 1.3
+		margin-bottom 30px
+	.product__price
+		margin-bottom 30px
+		.price_strike
+			margin-right 30px
+			font-size 22px
+			color #C3C3C3
+			text-decoration line-through
+			line-height 1
+			display inline-block
+			vertical-align middle
+		.price_regular
+			font-size 36px
+			color #292929
+			line-height 1
+			display inline-block
+			vertical-align middle
+	.add-to-cart-wrap
+		display flex
+		align-items center
+		.count
+			width 175px
+			background-color #E8E8E8
+			border-radius 26px
+			height 52px
+			display flex
+			align-items center
+			justify-content space-around
+			.count-minus,
+			.count-plus
+				font-size 18px
+				color #292929
+				line-height 1
+				font-weight bold
+				cursor pointer
+			.count-number
+				font-size 18px
+				color #292929
+				line-height 1
+				flex 0 0 50px
+				max-width 50px
+				font-weight bold
+				background transparent
+				border none
+				text-align center
+		.btn
+			margin-left 20px
+			padding 17px 65px
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+	-webkit-appearance none
+	margin 0
