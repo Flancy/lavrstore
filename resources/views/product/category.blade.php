@@ -44,7 +44,7 @@
                                             <p class="price_strike">{{ $product->regular_price }} ₽</p>
                                             <p class="price_regular">{{ $product->discount_price }} ₽</p>
                                         @else
-                                            <p class="price_regular">{{ $product->discount_price }} ₽</p>
+                                            <p class="price_regular">{{ $product->regular_price }} ₽</p>
                                         @endif
                                     </div>
                                     <div class="foot_right">

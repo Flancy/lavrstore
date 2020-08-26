@@ -52,8 +52,8 @@
                             <a class="nav-link" href="#">Контакты</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link nav-link_cart">
-                                <span>1</span>
+                            <a href="{{ route('cart.index') }}" class="nav-link nav-link_cart">
+                                <span>{{ Cart::getTotalQuantity() }}</span>
                                 <i class="fa fa-shopping-cart"></i>
                             </a>
                         </li>

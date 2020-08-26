@@ -26,3 +26,9 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/catalog', 'Product\ProductController@index')->name('catalog.index');
 Route::get('/product/{id}', 'Product\ProductController@show')->name('product.show');
 Route::get('/catalog/{category}', 'Product\ProductController@category')->name('catalog.category');
+
+Route::get('/cart', 'Cart\CartController@index')->name('cart.index');
+Route::post('/cart/add', 'Cart\CartController@add')->name('cart.store');
+Route::post('/cart/update', 'Cart\CartController@update')->name('cart.update');
+Route::post('/cart/remove', 'Cart\CartController@remove')->name('cart.remove');
+Route::post('/cart/clear', 'Cart\CartController@clear')->name('cart.clear');
