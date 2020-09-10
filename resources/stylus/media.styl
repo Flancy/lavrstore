@@ -1,0 +1,106 @@
+@media (min-width: 1200px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+	    max-width: 1400px;
+	}
+}
+@media (max-width: 1200px) {
+	.header .navbar .navbar-brand {
+	    width 80px
+	    margin-right 15px
+	}
+	.header .navbar .navbar-nav .nav-item .nav-link {
+	    font-weight bold
+	    padding 0
+	    font-size 11px
+	}
+	.header .form-inline .form-control {
+		max-width 160px
+		font-size 12px
+	}
+	.header .form-inline .btn-search {
+	    width 18px
+	    top 16px
+	    right 8px
+    }
+	
+	.slider .slider-wrap .btn:first-of-type {
+		margin-right 0
+		margin-bottom 15px
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.header .navbar .navbar-nav,
+	.navbar-collapse {
+		text-align center
+	}
+	.header .navbar .navbar-nav .nav-item,
+	.header .form-inline {
+		display inline-block
+	}
+	.header .form-inline,
+	.header .form-inline .form-control {
+		max-width 300px
+		width 300px
+	}
+	.header .navbar .navbar-nav .nav-item .nav-link {
+		display inline-block
+		margin-bottom 15px
+		position relative
+	}
+	.header .navbar .navbar-nav .nav-item:not(.dropdown) .nav-link:after {
+		left 50%
+		margin-left -11.5px
+	}
+	
+	.categories {
+		padding-bottom 40px
+	}
+	.categories .categories__item {
+		height 200px
+	}
+	.categories .categories__item .text-head {
+		font-size 18px
+	}
+	.categories .categories__item .item__footer {
+		padding 0 15px 30px 15px
+	}
+	.col-sm-4 {
+	    flex 0 0 33.3333333333%
+	    max-width 33.3333333333%
+	}
+	
+	.products .products__item .products__item-head {
+		height 180px
+	}
+	.products .products__item .products__item-body .text-head,
+	.products .products__item .products__item-foot .price_regular {
+		font-size 18px
+	}
+	.products .products__item .products__item-body .text,
+	.products .products__item .products__item-body .text-category {
+		font-size 12px
+	}
+	.products .products__item .btn {
+		padding 13px 13px
+		font-size 12px
+	}
+	
+	.banner .h2 {
+		margin-top 25px
+		font-size 40px
+		line-height 44px
+	}
+	.banner .banner__img {
+		position relative
+		margin-top 0
+		max-width 100%
+	}
+	.banner .h3 {
+		font-size 40px
+	}
+	.banner .banner__promo, .banner .banner__promo a {
+		font-size 18px
+		line-height 24px
+	}
+}

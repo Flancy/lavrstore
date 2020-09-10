@@ -1,0 +1,8 @@
+.custom-control-input:checked ~ .custom-control-label::before {
+	border-color: #e51b4f;
+    background-color: #e51b4f;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+    background: #e51b4f;
+    border-radius: 50%;
+}

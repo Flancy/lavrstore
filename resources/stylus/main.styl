@@ -1,6 +1,11 @@
 @import '~/public/fonts/fonts.css'
+@import 'partials/switch.css'
+@import 'partials/checkbox.css'
+
+@import 'modals/modal-order.styl'
 
 @import 'partials/header.styl'
+@import 'partials/footer.styl'
 @import 'partials/btns.styl'
 @import 'partials/breadcrumb.styl'
 @import 'partials/navbars.styl'
@@ -13,8 +18,22 @@
 
 @import 'product/product.styl'
 
+@import 'question/question.styl'
+
+@import 'contact/contact.styl'
+
+@import 'cart/cart.styl'
+@import 'cart/order.styl'
+
 body
 	font-family 'Mont'
+	background-color #ffffff !important
+	
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration
+	display none
 
 .owl-theme .owl-dots .owl-dot
 	outline none !important
@@ -24,9 +43,5 @@ body
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span
 	background #E51B4F !important
-	
-@media (min-width: 1200px) {
-	.container, .container-lg, .container-md, .container-sm, .container-xl {
-	    max-width: 1400px;
-	}
-}
+
+@import 'media.styl'

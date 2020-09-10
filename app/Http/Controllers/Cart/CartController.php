@@ -57,4 +57,13 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success_msg', 'Корзина очищена!');
     }
+
+    public function order()
+    {
+        $cartCollection = Cart::getContent();
+
+        return view('cart.order')->with([
+            'cartCollection' => $cartCollection
+        ]);
+    }
 }

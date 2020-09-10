@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('web');
     }
 
     /**
@@ -36,7 +36,7 @@ class HomeController extends Controller
 
         return view('home')->with([
             'slides' => Slider::all(),
-            'categories' => Category::all(),
+            'categories' => Category::orderBy('updated_at', 'asc')->get(),
             'products_new' => $products_new,
             'products_hot' => $products_hot,
             'news' => News::all()

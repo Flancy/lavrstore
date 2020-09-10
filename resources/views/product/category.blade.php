@@ -23,7 +23,7 @@
             <div class="row">
                 @foreach($products as $product)
                     @foreach($product->products as $product)
-                        <div class="col-md-3">
+                        <div class="col-sm-4 col-md-3">
                             <div class="products__item">
                                 <div class="products__item-head">
                                     <img src="{{ Voyager::image($product->image) }}" alt="{{ $product->title }}" class="products__img img-fluid">
@@ -35,12 +35,14 @@
                                     <a href="{{ route('catalog.category', $product->categories->slug) }}" class="text-category">{{ $product->categories->title }}</a>
                                     <a href="{{ route('product.show', $product->id) }}" class="text-head">{{ $product->title }}</a>
                                     <div class="text">
-                                        {{ Markdown::parse($product->short_content) }}
+                                        @if($product->short_content !== null)
+                                            {{ Markdown::parse($product->short_content) }}
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="products__item-foot">
                                     <div class="foot_left">
-                                        @if($product->discount_price !== '')
+                                        @if($product->discount_price !== null)
                                             <p class="price_strike">{{ $product->regular_price }} ₽</p>
                                             <p class="price_regular">{{ $product->discount_price }} ₽</p>
                                         @else

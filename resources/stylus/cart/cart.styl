@@ -1,0 +1,170 @@
+.cart
+	.cart-steps
+		position relative
+		padding-bottom 40px
+		h3
+			font-weight bold
+			font-size 21px
+			color #C3C3C3
+			line-height 1
+			&.active
+				color #101C21
+			&.h3-step-1
+				text-align left
+			&.h3-step-2
+				text-align center
+			&.h3-step-3
+				text-align right
+		.step-line
+			position absolute
+			left 15px
+			bottom 25px
+			width calc(100% - 30px)
+			height 1px
+			background-color #C3C3C3
+			.line-round
+				margin-top -6px
+				width 12px
+				height 12px
+				border-radius 50%
+				background-color #C3C3C3
+				position absolute
+				&.active
+					background-color #E51B4F
+				&:nth-child(1)
+					left 0
+				&:nth-child(2)
+					left 50%
+					margin-left -6px
+				&:nth-child(3)
+					right 0
+			&.step-line_order
+				&:after
+					content ''
+					display block
+					left 0
+					top 0
+					height 1px
+					background-color #E51B4F
+					width 50%
+	.cart-wrap
+		padding-top 25px
+		.table
+			th
+				font-weight bold
+				font-size 15px
+				line-height 1
+				color #C3C3C3
+				border none
+				padding 10px 0
+				text-transform uppercase
+				&:nth-child(3),
+				&:nth-child(4)
+					text-align center
+			td
+				border none
+				vertical-align middle
+				&:nth-child(3),
+				&:nth-child(4)
+					text-align center
+		.img-thumbnail
+			border none
+			background none
+			max-width 100px
+			height auto
+		.cart__title,
+		.cart__price
+			display block
+			font-size 15px
+			color #292929
+			line-height 1
+			margin-bottom 10px
+		.cart__price
+			font-weight bold
+		.btn-remove
+			padding 0
+			color #E51B4F
+			font-size 15px
+			font-weight 400
+			margin-bottom 0
+		.product-price-total
+			font-weight bold
+			font-size 15px
+			color #292929
+			line-height 1
+	.add-to-cart-wrap
+		margin 0 auto
+		display flex
+		width 125px
+		align-items center
+		.count
+			width 125px
+			background-color #E8E8E8
+			border-radius 26px
+			height 31px
+			display flex
+			align-items center
+			justify-content space-around
+			.count-minus,
+			.count-plus
+				font-size 15px
+				color #292929
+				line-height 1
+				font-weight bold
+				cursor pointer
+			.count-number
+				font-size 15px
+				color #292929
+				line-height 1
+				flex 0 0 40px
+				max-width 40px
+				font-weight bold
+				background transparent
+				border none
+				text-align center
+	.table-cart-footer
+		margin-top 40px
+		display flex
+		justify-content space-between
+		.btn-link
+			font-size 15px
+			color #1A6AD8
+			.btn__ico
+				margin-right 5px
+				width 19px
+				display inline-block
+				vertical-align middle
+		.btn-primary
+			font-size 15px
+			font-weight 400
+			padding 18px 36px
+			.btn__ico
+				margin-left 5px
+				width 19px
+				display inline-block
+				vertical-align middle
+	.cart-info
+		border-top 1px solid #E51B4F
+		.flex
+			display flex
+		.form-switch
+			margin-bottom 0
+		.cart-item
+			border-bottom 1px solid #C3C3C3
+			padding 30px 0 10px 0
+			font-size 15px
+			color #292929
+			font-weight bold
+	.cart-conf
+		padding-top 20px
+		.conf-link
+			display inline-block
+			vertical-align middle
+			font-size 12px
+			color #919191
+			font-weight bold
+			a
+				text-decoration underline
+				&:hover, &:active
+					text-decoration none
+				color #1A6AD8

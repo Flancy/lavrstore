@@ -3,6 +3,27 @@ import 'owl.carousel2/dist/assets/owl.theme.default.min.css'
 import owlCarousel from 'owl.carousel2'
 
 $(document).ready(function () {
+	$('img.img-svg').each(function(){
+        let $img = $(this)
+        let imgClass = $img.attr('class')
+        let imgURL = $img.attr('src')
+
+        $.get(imgURL, function(data) {
+            let $svg = $(data).find('svg')
+
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg')
+            }
+
+            $svg = $svg.removeAttr('xmlns:a')
+
+            if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
+            $img.replaceWith($svg)
+        }, 'xml')
+    })
+    
 	$('.general-slider').owlCarousel({
 	    loop: true,
 	    margin: 0,
@@ -17,7 +38,7 @@ $(document).ready(function () {
 		let h_block = parseInt($(this).height())
 
 		if(h_block > mh) {
-			mh = h_block;
+			mh = h_block
 		}
 	})
 

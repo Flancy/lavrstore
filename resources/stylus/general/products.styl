@@ -11,12 +11,17 @@
 	.products__item
 		box-shadow 0px 0px 20px rgba(0,0,0,0.1)
 		border-radius 20px
+		margin-bottom 30px
 		.products__item-head
+			padding-top 15px
+			padding-bottom 10px
 			height 260px
 			display flex
 			justify-content center
 			align-items center
 			position relative
+			.products__img
+				max-height 100%
 			.hot-ico
 				position absolute
 				top 20px
@@ -42,6 +47,7 @@
 				margin-bottom 5px
 				line-height 1
 			.text-head
+				display block
 				margin-bottom 10px
 				font-weight bold
 				font-size 24px
@@ -78,6 +84,8 @@
 			border 2px solid #E8E8E8
 			border-radius 20px
 			align-items center
+			.product__img
+				max-height 100%
 			.item_left
 				flex 0 0 35%
 				max-width 35%
@@ -109,4 +117,5 @@
 					color #292929
 					margin-bottom 0
 				.btn 
-					border-radius 10px
+					padding-left 20px
+					padding-right 20px

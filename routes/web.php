@@ -32,3 +32,9 @@ Route::post('/cart/add', 'Cart\CartController@add')->name('cart.store');
 Route::post('/cart/update', 'Cart\CartController@update')->name('cart.update');
 Route::post('/cart/remove', 'Cart\CartController@remove')->name('cart.remove');
 Route::post('/cart/clear', 'Cart\CartController@clear')->name('cart.clear');
+
+Route::get('/cart/order', 'Cart\CartController@order')->name('cart.order');
+
+Route::get('/question', 'Question\QuestionController@index')->name('question.index');
+
+Route::get('/contact', 'Contact\ContactController@index')->name('contact.index');

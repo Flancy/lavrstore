@@ -18,11 +18,13 @@
             <div class="row">
                 <div class="col-md-6 flex-row align-items-start">
                     <div class="product-slider_left">
-                        @foreach(json_decode($product->gallery) as $image)
-                            <div class="item">
-                                <img src="{{ Voyager::image($image) }}" class="product-slider-img img-fluid">
-                            </div>
-                        @endforeach
+                        @if($product->gallery !== null)
+                            @foreach(json_decode($product->gallery) as $image)
+                                <div class="item">
+                                    <img src="{{ Voyager::image($image) }}" class="product-slider-img img-fluid">
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="product-slider_right">
                         <div class="img-wrap">
@@ -41,16 +43,18 @@
                         <!--<div class="product__stars">ЗВЕЗДЫ ПОЗЖЕ</div>-->
 
                         <div class="product__content">
-                            {{ Markdown::parse($product->content) }}
+                            @if($product->content !== null)
+                                {{ Markdown::parse($product->content) }}
+                            @endif
                         </div>
                     </div>
                     <div class="product__foot">
                         <p class="product__price">
-                            @if($product->discount_price !== '')
+                            @if($product->discount_price !== null)
                                 <span class="price_strike">{{ $product->regular_price }} ₽</span>
                                 <span class="price_regular">{{ $product->discount_price }} ₽</span>
                             @else
-                                <span class="price_regular">{{ $product->discount_price }} ₽</span>
+                                <span class="price_regular">{{ $product->regular_price }} ₽</span>
                             @endif
                         </p>
 

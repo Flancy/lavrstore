@@ -18,18 +18,22 @@
                                         <div class="row">
                                             <div class="col-sm-7">
                                                 <h2 class="h2">
-                                                    {{ Markdown::parse($slide->title) }}
+                                                    @if($slide->title !== null)
+                                                        {{ Markdown::parse($slide->title) }}
+                                                    @endif
                                                 </h2>
 
                                                 <div class="text">
-                                                    {{ Markdown::parse($slide->content) }}
+                                                    @if($slide->content !== null)
+                                                        {{ Markdown::parse($slide->content) }}
+                                                    @endif
                                                 </div>
 
                                                 <a href="{{ $slide->link }}" class="btn btn-red">Быстрый заказ</a>
                                                 <a href="#" class="btn btn-red_outline">Смотреть каталог</a>
                                             </div>
-                                            <div class="col-sm-5 text-center">
-                                                <img src="{{ Voyager::image($slide->image) }}" alt="" class="img-fluid">
+                                            <div class="col-sm-5 text-right">
+                                                <img src="{{ Voyager::image($slide->image) }}" alt="" class="img-fluid img-slider">
                                             </div>
                                         </div>
                                     </div>
@@ -65,17 +69,29 @@
         <div class="container">
             <div class="row align-items-center">
                 @foreach($categories as $category)
-                    <div class="col-md-4">
-                        <div class="categories__item" style="
+                    <div class="
+                        @if($category->width_column === '1')
+                            col-md-12
+                        @elseif($category->width_column === '1/2')
+                            col-md-6
+                        @elseif($category->width_column === '1/3')
+                            col-md-4
+                        @elseif($category->width_column === '1/4')
+                            col-md-3
+                        @elseif($category->width_column === '1/5')
+                            col-md-2
+                        @endif
+                        ">
+                        <a href="{{ route('catalog.category', $category->slug) }}" class="categories__item" style="
                             background: {{ $category->bg_color }} url({{ Voyager::image($category->image) }}) center no-repeat;
                             background-size: auto;
                         ">
                             <div class="item__footer">
                                 <img src="{{ Voyager::image($category->icon) }}" alt="" class="item__ico">
 
-                                <a href="{{ route('catalog.category', $category->slug) }}" class="text-head" style="{{ $category->color }}">{{ $category->title }}</a>
+                                <p class="text-head" style="{{ $category->color }}">{{ $category->title }}</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -91,22 +107,24 @@
             </div>
             <div class="row">
                 @foreach($products_hot as $product)
-                    <div class="col-md-3">
+                    <div class="col-sm-4 col-md-3">
                         <div class="products__item">
                             <div class="products__item-head">
                                 <img src="{{ Voyager::image($product->image) }}" alt="{{ $product->title }}" class="products__img img-fluid">
-                                <img src="{{ asset('img/ico/hot.svg') }}" alt="" class="hot-ico">
+                                <img src="{{ asset('images/ico/hot.svg') }}" alt="" class="hot-ico">
                             </div>
                             <div class="products__item-body">
                                 <a href="{{ route('catalog.category', $product->categories->slug) }}" class="text-category">{{ $product->categories->title }}</a>
                                 <a href="{{ route('product.show', $product->id) }}" class="text-head">{{ $product->title }}</a>
                                 <div class="text">
-                                    {{ Markdown::parse($product->short_content) }}
+                                    @if($product->short_content !== null)
+                                        {{ Markdown::parse($product->short_content) }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="products__item-foot">
                                 <div class="foot_left">
-                                    @if($product->discount_price !== '')
+                                    @if($product->discount_price !== null)
                                         <p class="price_strike">{{ $product->regular_price }} ₽</p>
                                         <p class="price_regular">{{ $product->discount_price }} ₽</p>
                                     @else
@@ -147,26 +165,28 @@
             </div>
             <div class="row">
                 @foreach($products_new as $product)
-                    <div class="col-md-3">
+                    <div class="col-sm-4 col-md-3">
                         <div class="products__item">
                             <div class="products__item-head">
-                                <img src="{{ Voyager::image($product->image) }}" alt="{{ $product->categories->title }}" class="produycts__img img-fluid">
+                                <img src="{{ Voyager::image($product->image) }}" alt="{{ $product->categories->title }}" class="products__img img-fluid">
                                 <span class="news-ico">NEW</span>
                             </div>
                             <div class="products__item-body">
                                 <a href="{{ route('catalog.category', $product->categories->slug) }}" class="text-category">{{ $product->categories->title }}</a>
                                 <a href="{{ route('product.show', $product->id) }}" class="text-head">{{ $product->title }}</a>
                                 <div class="text">
-                                    {{ Markdown::parse($product->short_content) }}
+                                    @if($product->short_content !== null)
+                                        {{ Markdown::parse($product->short_content) }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="products__item-foot">
                                 <div class="foot_left">
-                                    @if($product->discount_price !== '')
+                                    @if($product->discount_price !== null)
                                         <p class="price_strike">{{ $product->regular_price }} ₽</p>
                                         <p class="price_regular">{{ $product->discount_price }} ₽</p>
                                     @else
-                                        <p class="price_regular">{{ $product->discount_price }} ₽</p>
+                                        <p class="price_regular">{{ $product->regular_price }} ₽</p>
                                     @endif
                                 </div>
                                 <div class="foot_right">
@@ -217,7 +237,7 @@
 
             <div class="row">
                 @foreach($news as $news_item)
-                    <div class="col-md-4">
+                    <div class="col-sm-4 col-md-3">
                         <div class="news__item">
                             <div class="news__item-head" style="background-image: url({{ Voyager::image($news_item->image) }});">&nbsp;</div>
                             <div class="news__item-body">
@@ -226,7 +246,9 @@
                                 <p class="text-head">{{ $news_item->title }}</p>
 
                                 <div class="text">
-                                    {{ Markdown::parse($news_item->short_content) }}
+                                    @if($news_item->short_content !== null)
+                                        {{ Markdown::parse($news_item->short_content) }}
+                                    @endif
                                 </div>
 
                                 <a href="#" class="link">Перейти к новости <i class="fa fa-chevron-right"></i></a>

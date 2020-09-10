@@ -23,7 +23,7 @@
         <header class="header" id="header">
             <nav class="container navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="{{ route('welcome') }}">
-                    <img src="{{ Voyager::image(setting('site.logo')) }}" alt="" class="img-fluid">
+                    <img src="{{ asset('images/logo.svg') }}" alt="" class="img-svg img-fluid">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control" type="search" placeholder="Поиск товара…" aria-label="Поиск товара…">
                         <button class="btn-search" type="submit">
-                            <img src="{{ asset('images/ico/btn-search.png') }}" alt="Поиск" class="img-fluid">
+                            <img src="{{ asset('images/ico/btn-search.svg') }}" alt="Поиск" class="img-fluid">
                         </button>
                     </form>
                     <ul class="navbar-nav ml-auto">
@@ -49,7 +49,7 @@
                             <a class="nav-link" href="#">Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link" href="{{ route('contact.index') }}">Контакты</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('cart.index') }}" class="nav-link nav-link_cart">
@@ -94,6 +94,79 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Контакты</p>
+
+                            <a href="tel:+7(996)524-69-42" class="footer__link">+7(996)524-69-42</a>
+                            <a href="mailto:lavrstore@mail.ru" class="footer__link">lavrstore@mail.ru</a>
+                        </div>
+                    </div>
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Сотрудничество</p>
+
+                            <p class="footer__link">Поставщикам</p>
+                            <a href="mailto:coop.lavrstore@mail.ru" class="footer__link">coop.lavrstore@mail.ru</a>
+                        </div>
+                    </div>
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Вопрос-ответ</p>
+
+                            <a href="#" class="footer__link">Доставка</a>
+                            <a href="№" class="footer__link">Возврат товара</a>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <a class="footer__brand" href="{{ route('welcome') }}">
+                            <img src="{{ asset('images/logo.svg') }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Тех-поддержка</p>
+
+                            <a href="{{ route('question.index') }}" class="footer__link footer__link_pink">Задать вопрос <img src="{{ asset('images/ico/click.svg') }}" alt="" class="footer__ico"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Магазин</p>
+
+                            <a href="#" class="footer__link">Все товары</a>
+                            <a href="#" class="footer__link">Скидки и акции</a>
+                        </div>
+                    </div>
+                    <div class="col-sm footer__item">
+                        <div>
+                            <p class="text-head">Соц-сети</p>
+
+                            <a href="#" class="footer__link-social">
+                                <img src="{{ asset('images/ico/instagram.svg') }}" alt="" class="footer__ico">
+                            </a>
+                            <a href="#" class="footer__link-social">
+                                <img src="{{ asset('images/ico/whatsapp.svg') }}" alt="" class="footer__ico">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <section class="developed" id="developed">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4 text-center">
+                        <a href="#" class="developed__link">Разработано @mambetov.dsgn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
