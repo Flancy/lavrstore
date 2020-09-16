@@ -28,7 +28,7 @@
                     </div>
                     <div class="product-slider_right">
                         <div class="img-wrap">
-                            <img src="{{ Voyager::image($product->image) }}" alt="" class="img-fluid">
+                            <img src="{{ Voyager::image($product->image) }}" alt="" class="general-image img-fluid">
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                             @endif
                         </p>
 
-                        <form action="{{ route('cart.store') }}" method="POST" class="add-to-cart-wrap">
+                        <form action="{{ route('cart.store') }}" method="POST" class="add-to-cart-wrap add-to-cart-form">
                             @csrf
                             
                             <input type="hidden" value="{{ $product->id }}" name="id">

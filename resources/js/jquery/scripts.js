@@ -107,8 +107,14 @@ $(document).ready(function () {
     $('.add-to-cart-form').click(function (e) {
         e.preventDefault()
 
+        const th = $(this).closest('form')
         const data = $(this).closest('form').serialize()
-        const image = $(this).closest('.products__item').find('.products__img');
+        let image = $(this).closest('.products__item').find('.products__img')
+
+        if($(this).hasClass('add-to-cart-wrap')) {
+            image = $(this).closest('.product').find('.general-image');
+        }
+
         const bascket = $('.fa-shopping-cart')
         let w = image.width()
         let errors = ''
@@ -117,7 +123,11 @@ $(document).ready(function () {
             .then((res) => {
                 const productCount = Number($('.header .nav-link.nav-link_cart span').text())
 
-                $('.header .nav-link.nav-link_cart span').text(productCount + 1)
+                if(th.hasClass('add-to-cart-wrap')) {
+                    $('.header .nav-link.nav-link_cart span').text( productCount + Number( th.find('input[name="quantity"]').val() ) )
+                } else {
+                    $('.header .nav-link.nav-link_cart span').text(productCount + 1)
+                }
 
                 image.clone()
                     .css({'width' : w,

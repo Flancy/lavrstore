@@ -53979,14 +53979,26 @@ $(document).ready(function () {
   });
   $('.add-to-cart-form').click(function (e) {
     e.preventDefault();
+    var th = $(this).closest('form');
     var data = $(this).closest('form').serialize();
     var image = $(this).closest('.products__item').find('.products__img');
+
+    if ($(this).hasClass('add-to-cart-wrap')) {
+      image = $(this).closest('.product').find('.general-image');
+    }
+
     var bascket = $('.fa-shopping-cart');
     var w = image.width();
     var errors = '';
     axios.post(path + '/cart/add', data).then(function (res) {
       var productCount = Number($('.header .nav-link.nav-link_cart span').text());
-      $('.header .nav-link.nav-link_cart span').text(productCount + 1);
+
+      if (th.hasClass('add-to-cart-wrap')) {
+        $('.header .nav-link.nav-link_cart span').text(productCount + Number(th.find('input[name="quantity"]').val()));
+      } else {
+        $('.header .nav-link.nav-link_cart span').text(productCount + 1);
+      }
+
       image.clone().css({
         'width': w,
         'position': 'absolute',
