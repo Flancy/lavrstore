@@ -99,59 +99,55 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Контакты</p>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-head">Контакты</p>
 
-                            <a href="tel:+7(996)524-69-42" class="footer__link">+7(996)524-69-42</a>
-                            <a href="mailto:lavrstore@mail.ru" class="footer__link">lavrstore@mail.ru</a>
+                                <a href="tel:+7(996)524-69-42" class="footer__link">+7(996)524-69-42</a>
+                                <a href="mailto:lavrstore@mail.ru" class="footer__link">lavrstore@mail.ru</a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-head">Сотрудничество</p>
+
+                                <p class="footer__link">Поставщикам</p>
+                                <a href="mailto:coop.lavrstore@mail.ru" class="footer__link">coop.lavrstore@mail.ru</a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-head">Вопрос-ответ</p>
+
+                                <a href="#" class="footer__link">Доставка</a>
+                                <a href="#" class="footer__link">Возврат товара</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Сотрудничество</p>
-
-                            <p class="footer__link">Поставщикам</p>
-                            <a href="mailto:coop.lavrstore@mail.ru" class="footer__link">coop.lavrstore@mail.ru</a>
-                        </div>
-                    </div>
-                    <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Вопрос-ответ</p>
-
-                            <a href="#" class="footer__link">Доставка</a>
-                            <a href="№" class="footer__link">Возврат товара</a>
-                        </div>
-                    </div>
-                    <div class="col-sm">
+                    <div class="col-sm footer__item-center">
                         <a class="footer__brand" href="{{ route('welcome') }}">
                             <img src="{{ asset('images/logo.svg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                     <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Тех-поддержка</p>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-head">Тех-поддержка</p>
 
-                            <a href="{{ route('question.index') }}" class="footer__link footer__link_pink">Задать вопрос <img src="{{ asset('images/ico/click.svg') }}" alt="" class="footer__ico"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Магазин</p>
+                                <a href="{{ route('question.index') }}" class="footer__link footer__link_pink">Задать вопрос <img src="{{ asset('images/ico/click.svg') }}" alt="" class="footer__ico"></a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-head">Магазин</p>
 
-                            <a href="#" class="footer__link">Все товары</a>
-                            <a href="#" class="footer__link">Скидки и акции</a>
-                        </div>
-                    </div>
-                    <div class="col-sm footer__item">
-                        <div>
-                            <p class="text-head">Соц-сети</p>
+                                <a href="#" class="footer__link">Все товары</a>
+                                <a href="#" class="footer__link">Скидки и акции</a>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-sm-6-last">
+                                <p class="text-head">Соц-сети</p>
 
-                            <a href="#" class="footer__link-social">
-                                <img src="{{ asset('images/ico/instagram.svg') }}" alt="" class="footer__ico">
-                            </a>
-                            <a href="#" class="footer__link-social">
-                                <img src="{{ asset('images/ico/whatsapp.svg') }}" alt="" class="footer__ico">
-                            </a>
+                                <a href="#" class="footer__link-social">
+                                    <img src="{{ asset('images/ico/instagram.svg') }}" alt="" class="footer__ico">
+                                </a>
+                                <a href="#" class="footer__link-social">
+                                    <img src="{{ asset('images/ico/whatsapp.svg') }}" alt="" class="footer__ico">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

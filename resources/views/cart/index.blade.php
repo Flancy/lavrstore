@@ -43,7 +43,7 @@
 
     <section class="cart">
     	<div class="container">
-    		<div class="row">
+    		<div class="row cart-row">
     			<div class="col-md-8 cart-steps-wrap">
     				<div class="row cart-steps">
 		    			<div class="col-sm-4">

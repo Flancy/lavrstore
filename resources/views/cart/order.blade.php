@@ -42,7 +42,7 @@
 
     <section class="cart">
     	<div class="container">
-    		<div class="row">
+    		<div class="row cart-order-row">
     			<div class="col-md-8">
     				<div class="row cart-steps">
 		    			<div class="col-sm-4">
@@ -124,7 +124,7 @@
 				    	</div>
 				    </div>
     			</div>
-    			<div class="col-md-4">
+    			<div class="col-sm-6 col-md-4">
     				<div class="order-info">
     					<p class="text-head">Мой заказ</p>
 
