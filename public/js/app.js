@@ -53934,6 +53934,20 @@ $(document).ready(function () {
     }
   });
   $(".products .products__item .products__item-body").height(mh);
+  $('.count-minus').click(function () {
+    var $input = $(this).parent().find('input');
+    var count = parseInt($input.val()) - 1;
+    count = count < 1 ? 1 : count;
+    $input.val(count);
+    $input.change();
+    return false;
+  });
+  $('.count-plus').click(function () {
+    var $input = $(this).parent().find('input');
+    $input.val(parseInt($input.val()) + 1);
+    $input.change();
+    return false;
+  });
 });
 
 /***/ }),
@@ -53967,9 +53981,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\Users\user\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! c:\Users\user\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! c:\Users\user\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\stylus\main.styl */"./resources/stylus/main.styl");
+__webpack_require__(/*! c:\Users\Flancy\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! c:\Users\Flancy\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! c:\Users\Flancy\Desktop\OpenServer\domains\laravel.lavrstore.loc\resources\stylus\main.styl */"./resources/stylus/main.styl");
 
 
 /***/ })

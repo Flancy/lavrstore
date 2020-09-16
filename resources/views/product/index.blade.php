@@ -46,7 +46,21 @@
                                     @endif
                                 </div>
                                 <div class="foot_right">
-                                    <a href="#" class="btn btn-red_outline">В корзину</a>
+                                    <form action="{{ route('cart.store') }}" method="POST">
+                                        @csrf
+                                        
+                                        <input type="hidden" value="{{ $product->id }}" name="id">
+                                        <input type="hidden" value="{{ $product->title }}" name="title">
+                                        @if($product->discount_price !== '')
+                                            <input type="hidden" value="{{ $product->discount_price }}" name="price">
+                                        @else
+                                            <input type="hidden" value="{{ $product->regular_price }}" name="price">
+                                        @endif
+                                        <input type="hidden" value="{{ $product->image }}" name="image">
+                                        <input type="hidden" value="1" id="quantity" name="quantity">
+
+                                        <button class="btn btn-red_outline">В корзину</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

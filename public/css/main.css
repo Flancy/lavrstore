@@ -990,6 +990,14 @@ input::-webkit-inner-spin-button {
 .contact .text .text__link:active.text__link_no-decoration {
   text-decoration: underline;
 }
+.cart .cart-info-wrap {
+  background-color: #f8f8f8;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.cart .cart-steps-wrap {
+  padding-right: 70px;
+}
 .cart .cart-steps {
   position: relative;
   padding-bottom: 40px;
@@ -1196,6 +1204,75 @@ input::-webkit-inner-spin-button {
 }
 .cart .cart-conf .conf-link a:hover,
 .cart .cart-conf .conf-link a:active {
+  text-decoration: none;
+}
+.cart .cart-promocode {
+  position: relative;
+  margin-top: 70px;
+}
+.cart .cart-promocode .h4 {
+  font-size: 21px;
+  font-weight: bold;
+  color: #292929;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.cart .cart-promocode .promocode {
+  width: 370px;
+  left: -50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background-color: #e51b4f;
+  box-shadow: 13px 30px 15px rgba(0,0,0,0.141);
+}
+.cart .cart-promocode .promocode .promocode-input {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  color: #292929;
+  outline: none !important;
+}
+.cart .cart-promocode .promocode-click {
+  position: absolute;
+  top: 50%;
+  right: -70px;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #2195de;
+  line-height: 40px;
+  text-align: center;
+}
+.cart .cart-promocode .promocode-click img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: auto;
+}
+.cart .cart-promocode .promocode-text {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #919191;
+  line-height: 1;
+  font-weight: bold;
+}
+.cart .cart-promocode .promocode-link {
+  color: #e51b4f;
+  text-decoration: underline;
+}
+.cart .cart-promocode .promocode-link:hover {
   text-decoration: none;
 }
 .order-wrap {

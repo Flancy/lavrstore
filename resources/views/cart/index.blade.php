@@ -12,37 +12,39 @@
         </div>
     </nav>
 
-    @if(session()->has('success_msg'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session()->get('success_msg') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-        </div>
-    @endif
-    @if(session()->has('alert_msg'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ session()->get('alert_msg') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-        </div>
-    @endif
-    @if(count($errors) > 0)
-        @foreach($errors0>all() as $error)
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ $error }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-        @endforeach
-    @endif
+    <div class="container messages">
+	    @if(session()->has('success_msg'))
+	        <div class="alert alert-success alert-dismissible fade show" role="alert">
+	            {{ session()->get('success_msg') }}
+	            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                <span aria-hidden="true">×</span>
+	            </button>
+	        </div>
+	    @endif
+	    @if(session()->has('alert_msg'))
+	        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+	            {{ session()->get('alert_msg') }}
+	            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                <span aria-hidden="true">×</span>
+	            </button>
+	        </div>
+	    @endif
+	    @if(count($errors) > 0)
+	        @foreach($errors0>all() as $error)
+	            <div class="alert alert-success alert-dismissible fade show" role="alert">
+	                {{ $error }}
+	                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                    <span aria-hidden="true">×</span>
+	                </button>
+	            </div>
+	        @endforeach
+	    @endif
+	</div>
 
     <section class="cart">
     	<div class="container">
     		<div class="row">
-    			<div class="col-md-8">
+    			<div class="col-md-8 cart-steps-wrap">
     				<div class="row cart-steps">
 		    			<div class="col-sm-4">
 		    				<h3 class="h3-step-1 active">Корзина</h3>
@@ -80,7 +82,7 @@
 				    							</td>
 				    							<td>
 				    								<p class="cart__category"></p>
-				    								<p class="cart__title">{{ $item->name }}</p>
+				    								<a href="{{ route('product.show', $item->id) }}" class="cart__title">{{ $item->name }}</a>
 				    								<p class="cart__price">{{ $item->price }} ₽</p>
 
 				    								<form action="{{ route('cart.remove') }}" method="POST">
@@ -124,8 +126,28 @@
 				    	</div>
 				    </div>
     			</div>
-    			<div class="col-md-4">
+    			<div class="col-md-4 cart-info-wrap">
     				<div class="cart-info">
+    					<div class="cart-promocode">
+    						<h4 class="h4">Введите промокод:</h4>
+
+    						<div class="promocode">
+    							<input type="text" class="promocode-input">
+    							<input type="text" class="promocode-input">
+    							<input type="text" class="promocode-input">
+    							<input type="text" class="promocode-input">
+    							<input type="text" class="promocode-input">
+    							<input type="text" class="promocode-input">
+
+    							<div class="promocode-click">
+	    							<img src="{{ asset('images/ico/click-white.svg') }}" alt="" class="img-svg">
+	    						</div>
+    						</div>
+    						
+    						<div class="promocode-text">
+    							Как получить промокод? <a href="#" class="promocode-link">Жми сюда!</a>
+    						</div>
+    					</div>
     					<div class="cart-item flex justify-content-between">
     						<div class="info-text">Доставка:</div>
     						<div class="info-text">Бесплатно</div>
