@@ -46,7 +46,7 @@
                                     @endif
                                 </div>
                                 <div class="foot_right">
-                                    <form action="{{ route('cart.store') }}" method="POST">
+                                    <form action="{{ route('cart.store') }}" method="POST" class="add-to-cart-form">
                                         @csrf
                                         
                                         <input type="hidden" value="{{ $product->id }}" name="id">

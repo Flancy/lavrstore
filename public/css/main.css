@@ -86,12 +86,18 @@
   font-weight: bold;
 }
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #fff !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 .header .navbar {
   padding: 27px 15px;
   background-color: #fff !important;
+  transition: all 0.3s ease-in-out;
 }
 .header .navbar .navbar-brand {
   width: 100px;
@@ -160,6 +166,9 @@
   padding: 0;
   border: none;
   background-color: transparent;
+}
+.header.active .navbar {
+  padding: 17px 15px;
 }
 .form-inline::-webkit-input-placeholder {
   color: #c3c3c3;
@@ -1342,6 +1351,7 @@ input::-webkit-inner-spin-button {
 body {
   font-family: 'Mont';
   background-color: #fff !important;
+  padding-top: 120px;
 }
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button,

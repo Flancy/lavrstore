@@ -5,6 +5,14 @@ import owlCarousel from 'owl.carousel2'
 $(document).ready(function () {
     const path = window.location.origin
 
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 140) {
+            $('.header').addClass('active')
+        } else {
+            $('.header').removeClass('active')
+        }
+    })
+
 	$('img.img-svg').each(function(){
         let $img = $(this)
         let imgClass = $img.attr('class')
@@ -74,8 +82,6 @@ $(document).ready(function () {
 
         axios.post(path + '/cart/order', data)
             .then((res) => {
-                console.log(res)
-
                 $('#modal-order').modal('show')
 
                 $("#modal-order").on("hidden.bs.modal", function () {
@@ -93,6 +99,42 @@ $(document).ready(function () {
                 setTimeout(function () {
                     $('.order-alert-error').hide().find('.error-message').html('')
                 }, 5000)
+            })
+
+        return false
+    })
+
+    $('.add-to-cart-form').click(function (e) {
+        e.preventDefault()
+
+        const data = $(this).closest('form').serialize()
+        const image = $(this).closest('.products__item').find('.products__img');
+        const bascket = $('.fa-shopping-cart')
+        let w = image.width()
+        let errors = ''
+
+        axios.post(path + '/cart/add', data)
+            .then((res) => {
+                const productCount = Number($('.header .nav-link.nav-link_cart span').text())
+
+                $('.header .nav-link.nav-link_cart span').text(productCount + 1)
+
+                image.clone()
+                    .css({'width' : w,
+                        'position' : 'absolute',
+                        'z-index' : '9999',
+                        top: image.offset().top,
+                        left: image.offset().left})
+                            .appendTo("body")
+                            .animate({opacity: 0.05,
+                                left: bascket.offset()['left'],
+                                top: bascket.offset()['top'],
+                                width: 20}, 1000, function() {   
+                                $(this).remove()
+                            })
+            })
+            .catch((err) => {
+                console.log(err)
             })
 
         return false

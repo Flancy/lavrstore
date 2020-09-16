@@ -1,9 +1,15 @@
 .header
+	position fixed
+	top 0
+	left 0
+	right 0
 	background-color #fff !important
 	box-shadow 0 2px 4px rgba(0,0,0,0.1)
+	z-index 1000
 	.navbar
 		padding 27px 15px
 		background-color #fff !important
+		transition all 0.3s ease-in-out
 		.navbar-brand
 			width 100px
 			margin-right 40px
@@ -63,6 +69,9 @@
 			padding 0
 			border none
 			background-color transparent
+	&.active
+		.navbar
+			padding 17px 15px
 			
 .form-inline::-webkit-input-placeholder
 	color #C3C3C3
