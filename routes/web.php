@@ -34,6 +34,7 @@ Route::post('/cart/remove', 'Cart\CartController@remove')->name('cart.remove');
 Route::post('/cart/clear', 'Cart\CartController@clear')->name('cart.clear');
 
 Route::get('/cart/order', 'Cart\CartController@order')->name('cart.order');
+Route::post('/cart/order', 'Cart\OrderController@order')->name('cart.order.post');
 
 Route::get('/question', 'Question\QuestionController@index')->name('question.index');
 

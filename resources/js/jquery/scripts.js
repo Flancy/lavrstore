@@ -3,6 +3,8 @@ import 'owl.carousel2/dist/assets/owl.theme.default.min.css'
 import owlCarousel from 'owl.carousel2'
 
 $(document).ready(function () {
+    const path = window.location.origin
+
 	$('img.img-svg').each(function(){
         let $img = $(this)
         let imgClass = $img.attr('class')
@@ -60,6 +62,38 @@ $(document).ready(function () {
 
         $input.val(parseInt($input.val()) + 1)
         $input.change()
+
+        return false
+    })
+
+    $('.cart .form-order button[type="submit"]').click(function (e) {
+        e.preventDefault()
+
+        const data = $(this).closest('form').serialize()
+        let errors = ''
+
+        axios.post(path + '/cart/order', data)
+            .then((res) => {
+                console.log(res)
+
+                $('#modal-order').modal('show')
+
+                $("#modal-order").on("hidden.bs.modal", function () {
+                    window.location = path
+                })
+            })
+            .catch((err) => {
+                $.each(err.response.data.errors, function (key, value) {
+                    errors += '<li>' + value + '</li>'
+                })
+
+                $('.order-alert-error').show()
+                $('.order-alert-error').find('.error-message').html(errors)
+
+                setTimeout(function () {
+                    $('.order-alert-error').hide().find('.error-message').html('')
+                }, 5000)
+            })
 
         return false
     })

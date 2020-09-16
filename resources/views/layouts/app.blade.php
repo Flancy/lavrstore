@@ -141,7 +141,7 @@
                             <div class="col-sm-6 col-md-4 col-sm-6-last">
                                 <p class="text-head">Соц-сети</p>
 
-                                <a href="#" class="footer__link-social">
+                                <a href="instagram.com/lavrstore.ru" class="footer__link-social" target="_blank">
                                     <img src="{{ asset('images/ico/instagram.svg') }}" alt="" class="footer__ico">
                                 </a>
                                 <a href="#" class="footer__link-social">

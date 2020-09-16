@@ -13,22 +13,21 @@
         </div>
     </nav>
 
-    @if(session()->has('success_msg'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session()->get('success_msg') }}
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible fade show order-alert-error" role="alert" style="display: none">
+            <ul class="error-message"></ul>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
-    @endif
-    @if(session()->has('alert_msg'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ session()->get('alert_msg') }}
+
+        <div class="alert alert-success alert-dismissible fade show order-alert-success" role="alert" style="display: none">
+            <div class="success-message"></div>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
-    @endif
+	</div>
     @if(count($errors) > 0)
         @foreach($errors0>all() as $error)
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -65,7 +64,7 @@
 				    	<div class="col-md-12">
 				    		<p class="text-head">Адрес:</p>
 
-				    		<form class="form-order" method="POST">
+				    		<form class="form-order" method="POST" action="{{ route('cart.order.post') }}">
 				    			@csrf
 
 				    			<div class="row form-group">
@@ -81,7 +80,7 @@
 				    			</div>
 				    			<div class="row form-group">
 				    				<div class="col">
-				    					<input type="text" name="address" class="form-control" placeholder="Улица, № квартиры*">
+				    					<input type="text" name="street" class="form-control" placeholder="Улица, № квартиры*">
 				    				</div>
 				    				<div class="col">
 				    					<input type="tel" name="phone" class="form-control" placeholder="Номер телефона*">
@@ -100,25 +99,49 @@
 				    					<p class="text-head">Способ оплаты:</p>
 
 				    					<div class="custom-control custom-radio">
-											<input type="radio" id="pay-1" name="pay" class="custom-control-input">
+											<input type="radio" id="pay-1" name="pay" class="custom-control-input" checked="checked" value="cash_delivery">
 											<label class="custom-control-label" for="pay-1">Оплата при получении</label>
 										</div>
 										<div class="custom-control custom-radio">
-											<input type="radio" id="pay-2" name="pay" class="custom-control-input">
+											<input type="radio" id="pay-2" name="pay" class="custom-control-input" value="online_card">
 											<label class="custom-control-label" for="pay-2">Онлайн-оплата картой</label>
 										</div>
 				    				</div>
 				    			</div>
+
+				    			<input type="hidden" name="products" value='
+				    				@forelse($cartCollection as $item)
+			    						<tr>
+			    							<td>
+			    								<img src="{{ Voyager::image($item->attributes->image) }}" class="img-thumbnail">
+			    							</td>
+			    							<td>
+			    								<p class="order-info__title">
+			    									<span class="grey">{{ $item->quantity }}X</span>
+			    									<span>{{ $item->name }}</span>
+			    								</p>
+			    							</td>
+			    							<td>
+			    								<span class="order-info__total">{{ \Cart::get($item->id)->getPriceSum() }}₽</span>
+			    							</td>
+			    						</tr>
+			    					@empty
+			    						<p class="no-products">Нет товаров в корзине</p>
+			    					@endforelse
+				    			'>
+
+				    			<input type="hidden" name="total" value="{{ \Cart::get($item->id)->getPriceSum() }}₽">
+				    			<input type="hidden" name="promocode" value="0">
 
 					    		<div class="table-cart-footer">
 					    			<a href="{{ route('cart.index') }}" class="btn btn-link">
 					    				<img src="{{ asset('images/ico/left-black_arrow.svg') }}" alt="" class="btn__ico">
 					    				Вернуться назад
 					    			</a>
-					    			<a href="{{ route('catalog.index') }}" class="btn btn-primary" data-toggle="modal" data-target="#modal-order">
+					    			<button type="submit" href="{{ route('catalog.index') }}" class="btn btn-primary" data-toggle="modal" data-target="#modal-order">
 					    				Оформить заказ
 					    				<img src="{{ asset('images/ico/left-white_arrow.svg') }}" alt="" class="btn__ico">
-					    			</a>
+					    			</button>
 					    		</div>
 				    		</form>
 				    	</div>
